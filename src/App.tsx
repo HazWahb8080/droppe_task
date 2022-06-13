@@ -1,5 +1,9 @@
 import React, { useState } from "react";
-import { FavoritesContext, ProductsContext } from "./context/useContext";
+import {
+  FavoritesContext,
+  MessageContext,
+  ProductsContext,
+} from "./context/useContext";
 import ShopApp from "./ShopApp";
 
 function App() {
@@ -9,11 +13,14 @@ function App() {
     title: "",
   });
   const [favorites, setFavorites] = useState([]);
+  const [message, setMessage] = useState({ isShowing: false, content: "" });
 
   return (
     <ProductsContext.Provider value={{ products, setProducts }}>
       <FavoritesContext.Provider value={{ favorites, setFavorites }}>
-        <ShopApp />
+        <MessageContext.Provider value={{ message, setMessage }}>
+          <ShopApp />
+        </MessageContext.Provider>
       </FavoritesContext.Provider>
     </ProductsContext.Provider>
   );

@@ -16,6 +16,7 @@ export default function ShopApp() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const { favorites } = useContext<Favorites>(FavoritesContext);
   const { products, setProducts } = useContext<any>(ProductsContext);
+  const { message } = useContext<any>(MessageContext);
 
   // fetching Products
   useEffect(() => {
@@ -62,11 +63,11 @@ export default function ShopApp() {
           <span role="button">
             <Button>Send product proposal</Button>
           </span>
-          {/* {this.state.isShowingMessage && (
+          {message.isShowing && (
             <div className={styles.messageContainer}>
-              <i>{this.state.message}</i>
+              <i>{message.content}</i>
             </div>
-          )} */}
+          )}
         </div>
 
         <div className={styles.statsContainer}>
