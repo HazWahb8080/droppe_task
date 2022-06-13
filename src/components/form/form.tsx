@@ -1,15 +1,15 @@
 import React, { FormEvent, useContext, useEffect, useState } from "react";
-import { Button } from "../button/button";
+import { Button } from "../button/Button";
 import styles from "./form.module.css";
 import {
   MessageContext,
   ModalContext,
   ProductsContext,
-} from "./../../context/useContext";
-import { Product } from "./../../../typings.d";
-import Input from "./../input/Input";
+} from "../../context/useContext";
+import { Product } from "../../../typings";
+import Input from "../input/Input";
 import useInput from "../../hooks/useInput";
-import TextArea from "./../textarea/TextArea";
+import TextArea from "../textarea/TextArea";
 import FormItem from "./formItem/FormItem";
 
 export const Form = () => {

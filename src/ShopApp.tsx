@@ -1,24 +1,26 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Button } from "./components/button/button";
-import { Form } from "./components/form/form";
+import ProductList from "./components/ProductList";
 import styles from "./shopApp.module.css";
+import { Favorites } from "../typings";
 import {
   FavoritesContext,
   MessageContext,
+  ModalContext,
   ProductsContext,
 } from "./context/useContext";
-import { Favorites } from "./../typings.d";
-import ProductList from "./components/ProductList";
 import ModalItem from "./components/modal/ModalItem";
 import { images } from "./utils/images/images";
-
+import "./index.css";
+import { Button } from "./components/button/Button";
+import { Form } from "./components/form/Form";
 export default function ShopApp() {
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+  // states
   const { favorites } = useContext<Favorites>(FavoritesContext);
+  const { modalIsOpen, setModalIsOpen } = useContext<any>(ModalContext);
   const { products, setProducts } = useContext<any>(ProductsContext);
-  const { message } = useContext<any>(MessageContext);
-  const [loadingForProducts, setLoadingForProducts] = useState(false);
   const { shopapp, logo } = images;
+  const [loadingForProducts, setLoadingForProducts] = useState(false);
+  const { message } = useContext<any>(MessageContext);
 
   // fetching Products
   useEffect(() => {

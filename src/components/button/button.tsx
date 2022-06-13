@@ -1,13 +1,14 @@
-import * as React from "react";
+import React, { ReactNode } from "react";
 import styles from "./button.module.css";
 
-interface props {
-  children: any;
+interface Props {
+  children: string | ReactNode;
   onClick?: () => void;
+  type?: "button" | "submit" | "reset";
 }
 
-export const Button: React.FC<props> = ({ children, onClick }) => (
-  <button className={styles.button} onClick={onClick}>
+export const Button = ({ children, onClick, type }: Props) => (
+  <button className={styles.button} type={type} onClick={onClick}>
     {children}
   </button>
 );
