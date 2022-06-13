@@ -20,15 +20,18 @@ export default function ShopApp() {
   const { favorites } = useContext<Favorites>(FavoritesContext);
   const { products, setProducts } = useContext<any>(ProductsContext);
   const { message } = useContext<any>(MessageContext);
+  const [loadingForProducts, setLoadingForProducts] = useState(false);
 
   // fetching Products
   useEffect(() => {
     document.title = "Droppe refactor app";
+    setLoadingForProducts(true);
     const fetchData = async () => {
       await fetch("https://fakestoreapi.com/products")
         .then((res) => res.json())
         .then((data) => {
           setProducts(data);
+          setLoadingForProducts(false);
         })
         .catch((err) => alert(err));
     };
@@ -73,17 +76,23 @@ export default function ShopApp() {
           )}
         </div>
 
-        <div className={styles.statsContainer}>
-          <span>Total products: {products.length}</span>
-          {" - "}
-          <span>Number of favorites: {favorites.length}</span>
-        </div>
-
-        {products && !!products.length ? (
-          <ProductList products={products} />
-        ) : (
-          <div></div>
+        {!loadingForProducts && (
+          <div className={styles.statsContainer}>
+            <span>Total products: {products.length}</span>
+            {" - "}
+            <span>Number of favorites: {favorites?.length}</span>
+          </div>
         )}
+
+        {
+          loadingForProducts ? (
+            <div>Loading...</div> // it is better to use loading custom component or skeletons.
+          ) : products?.length >= 1 ? (
+            <ProductList products={products} />
+          ) : (
+            <div>No products avialable</div>
+          ) // always tell the user the current state
+        }
       </div>
 
       <>
