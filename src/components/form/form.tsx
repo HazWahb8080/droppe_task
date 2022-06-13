@@ -7,6 +7,7 @@ import {
   ProductsContext,
 } from "./../../context/useContext";
 import { Product } from "./../../../typings.d";
+import Input from "./../input/Input";
 
 export const Form = () => {
   const { setModalIsOpen } = useContext<any>(ModalContext);
@@ -55,7 +56,11 @@ export const Form = () => {
     >
       <span className={styles.label}>Product title: *</span>
 
-      <input placeholder="Title..." defaultValue="" className={styles.input} />
+      <Input
+        id="form-input-required"
+        name="title"
+        placeholder="Women's Short Sleeve Boat Neck V"
+      />
 
       <span className={styles.label}>Product details: *</span>
 
