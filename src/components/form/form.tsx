@@ -5,6 +5,12 @@ import { ModalContext } from "./../../context/useContext";
 
 export const Form = () => {
   const { setModalIsOpen } = useContext<any>(ModalContext);
+  const [newProduct, setNewProduct] = useState<Product>({
+    title: "",
+    description: "",
+    price: 0,
+    rating: { rate: 0, count: 0 }, // added based on the scope of the project overall. as customers who will rate the product
+  });
 
   return (
     <form
