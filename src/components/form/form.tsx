@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { FormEvent, useContext, useEffect, useState } from "react";
 import { Button } from "../button/button";
 import styles from "./form.module.css";
 import {
@@ -27,6 +27,34 @@ export const Form = () => {
   const [title, bindTitle, resetTitle] = useInput("");
   const [description, bindDescription, resetDescription] = useInput("");
   const [price, bindPrice, resetPrice] = useInput("");
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    // Form validation here
+    const formInputs = document.querySelectorAll("#form-input-required");
+    const formInputsArray = Array.from(formInputs);
+    let Errors = [];
+    formInputsArray.forEach((field: HTMLInputElement | any) => {
+      if (field.value.trim() === "" || field.value === "0") {
+        Errors.push(`${field.name} is required`);
+        alert(`${field.name} is required`);
+      }
+    });
+    if (Errors.length === 0) {
+      setNewProduct({
+        ...newProduct,
+        title: title,
+        description: description,
+        price: price,
+      });
+      setMessage({ isShowing: true, content: "Adding Product" });
+      setModalIsOpen(false);
+      // in order to solve the problem of the inputs not being reseted when the modal is closed
+      resetDescription();
+      resetTitle();
+      resetPrice();
+    }
+  };
 
   useEffect(() => {
     if (!newProduct.title) return; //because it runs after the first render
