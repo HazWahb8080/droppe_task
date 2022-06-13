@@ -10,6 +10,7 @@ import { Product } from "./../../../typings.d";
 import Input from "./../input/Input";
 import useInput from "../../hooks/useInput";
 import TextArea from "./../textarea/TextArea";
+import FormItem from "./formItem/FormItem";
 
 export const Form = () => {
   const { setModalIsOpen } = useContext<any>(ModalContext);
@@ -57,31 +58,32 @@ export const Form = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [newProduct]);
   return (
-    <form
-      className={styles.form}
-      // onSubmit={(event) => handleSubmit(event)}
-    >
-      <p className={styles.label}>Product Title: *</p>
-      <Input
-        id="form-input-required"
-        name="title"
-        {...bindTitle}
-        placeholder="Women's Short Sleeve Boat Neck V"
-      />
-      <p className={styles.label}>Product details: *</p>
-      <Input
-        id="form-input-required"
-        name="price"
-        placeholder="120"
-        {...bindPrice}
-      />
-      <TextArea
-        id="form-input-required"
-        name="description"
-        placeholder="Start typing product description here..."
-        {...bindDescription}
-      />
-      <Button>Add a product</Button>
-    </form>
+    <FormItem style={styles.form} onSubmit={(e) => handleSubmit(e)}>
+      <FormItem.Body>
+        <p className={styles.label}>Product Title: *</p>
+        <Input
+          id="form-input-required"
+          name="title"
+          {...bindTitle}
+          placeholder="Women's Short Sleeve Boat Neck V"
+        />
+        <p className={styles.label}>Product details: *</p>
+        <Input
+          id="form-input-required"
+          name="price"
+          placeholder="120"
+          {...bindPrice}
+        />
+        <TextArea
+          id="form-input-required"
+          name="description"
+          placeholder="Start typing product description here..."
+          {...bindDescription}
+        />
+      </FormItem.Body>
+      <FormItem.Footer>
+        <Button>Add a product</Button>
+      </FormItem.Footer>
+    </FormItem>
   );
 };

@@ -47,3 +47,20 @@ export interface InputProps extends TextAreaProps {
     | "url"
     | "week";
 }
+export interface FormProps {
+  children: ReactNode | Component[] | any;
+  style: string;
+  onSubmit: (e: FormEvent) => void;
+}
+export interface HeaderProps {
+  children: ReactNode | string;
+  style: string;
+}
+export interface BodyProps {
+  children: ReactNode;
+  style?: string;
+}
+export interface FooterProps {
+  children: ReactNode | string;
+  style?: string;
+}
