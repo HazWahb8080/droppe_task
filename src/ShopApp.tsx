@@ -10,6 +10,7 @@ import img1 from "./images/img1.png";
 import img2 from "./images/img2.png";
 import styles from "./shopApp.module.css";
 import { FavoritesContext, ProductsContext } from "./context/useContext";
+import { Favorites } from "./../typings.d";
 
 export default function ShopApp() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
