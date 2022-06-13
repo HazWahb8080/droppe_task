@@ -40,7 +40,7 @@ export default function ShopApp() {
   }, []);
 
   return (
-    <React.Fragment>
+    <>
       <div className={styles.header}>
         <div className={["container", styles.headerImageWrapper].join(" ")}>
           <img src={logo} className={styles.headerImage} />
@@ -113,6 +113,6 @@ export default function ShopApp() {
           </div>
         </Modal>
       </>
-    </React.Fragment>
+    </>
   );
 }
