@@ -1,15 +1,17 @@
 import React, { useContext, useEffect, useState } from "react";
-import lodash from "lodash";
 import Modal from "react-modal";
 import { FaTimes } from "react-icons/fa";
 import { Button } from "./components/button";
-import ProductList from "./components/product-list-components";
 import { Form } from "./components/form";
 import logo from "./images/droppe-logo.png";
 import img1 from "./images/img1.png";
 import img2 from "./images/img2.png";
 import styles from "./shopApp.module.css";
-import { FavoritesContext, ProductsContext } from "./context/useContext";
+import {
+  FavoritesContext,
+  MessageContext,
+  ProductsContext,
+} from "./context/useContext";
 import { Favorites } from "./../typings.d";
 
 export default function ShopApp() {
