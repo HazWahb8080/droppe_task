@@ -9,6 +9,7 @@ import {
 import { Product } from "./../../../typings.d";
 import Input from "./../input/Input";
 import useInput from "../../hooks/useInput";
+import TextArea from "./../textarea/TextArea";
 
 export const Form = () => {
   const { setModalIsOpen } = useContext<any>(ModalContext);
@@ -74,10 +75,11 @@ export const Form = () => {
         placeholder="120"
         {...bindPrice}
       />
-      <textarea
+      <TextArea
+        id="form-input-required"
+        name="description"
         placeholder="Start typing product description here..."
-        defaultValue=""
-        className={styles.textarea}
+        {...bindDescription}
       />
       <Button>Add a product</Button>
     </form>
