@@ -11,10 +11,8 @@ interface ProductItemProps {
 export default function ProductItem({ product }: ProductItemProps) {
   const [isFavorite, setIsFavorite] = useState<boolean>(false);
   const { favorites, setFavorites } = useContext<Favorites>(FavoritesContext);
-  //  i think destructring and renaming classes in not a good prctice cause....
   const { title, description, price, rating } = product; // destructuring
   // Problem: Now product title can be too long, I just put overflowX as fix now
-  // fix: remove overflowX on title and product and removal of "nowrap" will fix that.
 
   function handleFavProduct() {
     setIsFavorite((currState) => !currState);

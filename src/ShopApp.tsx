@@ -13,6 +13,7 @@ import {
   ProductsContext,
 } from "./context/useContext";
 import { Favorites } from "./../typings.d";
+import ProductList from "./components/ProductList";
 
 export default function ShopApp() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
