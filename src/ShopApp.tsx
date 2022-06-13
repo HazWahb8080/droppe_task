@@ -15,6 +15,7 @@ import {
 import { Favorites } from "./../typings.d";
 import ProductList from "./components/ProductList";
 import ModalItem from "./components/modal/ModalItem";
+import { images } from "./utils/images/images";
 
 export default function ShopApp() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -22,6 +23,7 @@ export default function ShopApp() {
   const { products, setProducts } = useContext<any>(ProductsContext);
   const { message } = useContext<any>(MessageContext);
   const [loadingForProducts, setLoadingForProducts] = useState(false);
+  const { shopapp, logo } = images;
 
   // fetching Products
   useEffect(() => {
@@ -42,33 +44,30 @@ export default function ShopApp() {
 
   return (
     <>
-      <div className={styles.header}>
-        <div className={["container", styles.headerImageWrapper].join(" ")}>
-          <img src={logo} className={styles.headerImage} />
+      <header className={styles.header}>
+        <div className={`container ${styles.headerImageWrapper}`}>
+          <img src={logo.link} alt={logo.alt} className={styles.logo} />
         </div>
+      </header>
+      <div className={`container ${styles.main} ${styles.ImagesWrapper}`}>
+        <img
+          src={shopapp.header.left.link}
+          alt={shopapp.header.left.alt}
+          className={styles.heroImage}
+        />
+        <img
+          src={shopapp.header.right.link}
+          alt={shopapp.header.right.alt}
+          className={styles.heroImage}
+        />
       </div>
 
-      <>
-        <span
-          className={["container", styles.main].join(" ")}
-          style={{
-            margin: "50px inherit",
-            display: "flex",
-            justifyContent: "space-evenly",
-          }}
-        >
-          <img src={img1} style={{ maxHeight: "15em", display: "block" }} />
-          <img src={img2} style={{ maxHeight: "15rem", display: "block" }} />
-        </span>
-      </>
-
-      <div
-        className={["container", styles.main].join(" ")}
-        style={{ paddingTop: 0 }}
-      >
+      <div className={`container ${styles.main}`} style={{ paddingTop: 0 }}>
         <div className={styles.buttonWrapper}>
           <span role="button">
-            <Button>Send product proposal</Button>
+            <Button onClick={() => setModalIsOpen(true)}>
+              Send product proposal
+            </Button>
           </span>
           {message.isShowing && (
             <div className={styles.messageContainer}>
@@ -95,7 +94,6 @@ export default function ShopApp() {
           ) // always tell the user the current state
         }
       </div>
-
       <ModalItem isOpen={modalIsOpen} handleClick={() => setModalIsOpen(false)}>
         <Form />
       </ModalItem>
