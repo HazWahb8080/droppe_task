@@ -8,6 +8,7 @@ import {
 } from "./../../context/useContext";
 import { Product } from "./../../../typings.d";
 import Input from "./../input/Input";
+import useInput from "../../hooks/useInput";
 
 export const Form = () => {
   const { setModalIsOpen } = useContext<any>(ModalContext);
@@ -19,6 +20,11 @@ export const Form = () => {
     rating: { rate: 0, count: 0 }, // added based on the scope of the project overall. as customers who will rate the product
   });
   const { products, setProducts } = useContext<any>(ProductsContext);
+
+  // handling the form submit
+  const [title, bindTitle, resetTitle] = useInput("");
+  const [description, bindDescription, resetDescription] = useInput("");
+  const [price, bindPrice, resetPrice] = useInput("");
 
   useEffect(() => {
     if (!newProduct.title) return; //because it runs after the first render
@@ -54,24 +60,25 @@ export const Form = () => {
       className={styles.form}
       // onSubmit={(event) => handleSubmit(event)}
     >
-      <span className={styles.label}>Product title: *</span>
-
+      <p className={styles.label}>Product Title: *</p>
       <Input
         id="form-input-required"
         name="title"
+        {...bindTitle}
         placeholder="Women's Short Sleeve Boat Neck V"
       />
-
-      <span className={styles.label}>Product details: *</span>
-
-      <input placeholder="Price..." defaultValue="" className={styles.input} />
-
+      <p className={styles.label}>Product details: *</p>
+      <Input
+        id="form-input-required"
+        name="price"
+        placeholder="120"
+        {...bindPrice}
+      />
       <textarea
         placeholder="Start typing product description here..."
         defaultValue=""
         className={styles.textarea}
       />
-
       <Button>Add a product</Button>
     </form>
   );
