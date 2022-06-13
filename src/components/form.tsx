@@ -3,7 +3,7 @@ import { Button } from "./button";
 import styles from "./form.module.css";
 
 type IFormProps = {
-  "on-submit": (payload: { title: string; description: string; price: string }) => void;
+  "on-submit"?: (payload: { title: string; description: string; price: string }) => void;
 }
 
 export const Form: React.FC<IFormProps> = (props) => {
