@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ProductsContext } from "./context/useContext";
+import { FavoritesContext, ProductsContext } from "./context/useContext";
 import ShopApp from "./ShopApp";
 
 function App() {
@@ -8,10 +8,13 @@ function App() {
     description: "",
     title: "",
   });
+  const [favorites, setFavorites] = useState([]);
 
   return (
     <ProductsContext.Provider value={{ products, setProducts }}>
-      <ShopApp />
+      <FavoritesContext.Provider value={{ favorites, setFavorites }}>
+        <ShopApp />
+      </FavoritesContext.Provider>
     </ProductsContext.Provider>
   );
 }

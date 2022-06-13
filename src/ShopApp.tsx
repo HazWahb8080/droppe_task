@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import lodash from "lodash";
 import Modal from "react-modal";
 import { FaTimes } from "react-icons/fa";
@@ -9,11 +9,13 @@ import logo from "./images/droppe-logo.png";
 import img1 from "./images/img1.png";
 import img2 from "./images/img2.png";
 import styles from "./shopApp.module.css";
+import { FavoritesContext, ProductsContext } from "./context/useContext";
 
 export default function ShopApp() {
-  const [products, setProducts] = useState([]);
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [favorites, setFavorites] = useState([]);
+  const { favorites } = useContext<Favorites>(FavoritesContext);
+  const { products, setProducts } = useContext<any>(ProductsContext);
+
   // fetching Products
   useEffect(() => {
     document.title = "Droppe refactor app";
@@ -26,6 +28,7 @@ export default function ShopApp() {
         .catch((err) => alert(err));
     };
     fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
