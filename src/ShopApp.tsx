@@ -14,6 +14,7 @@ import {
 } from "./context/useContext";
 import { Favorites } from "./../typings.d";
 import ProductList from "./components/ProductList";
+import ModalItem from "./components/modal/ModalItem";
 
 export default function ShopApp() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -95,24 +96,9 @@ export default function ShopApp() {
         }
       </div>
 
-      <>
-        <Modal
-          isOpen={modalIsOpen}
-          className={styles.reactModalContent}
-          overlayClassName={styles.reactModalOverlay}
-        >
-          <div className={styles.modalContentHelper}>
-            <div
-              className={styles.modalClose}
-              onClick={() => setModalIsOpen(false)}
-            >
-              <FaTimes />
-            </div>
-
-            <Form />
-          </div>
-        </Modal>
-      </>
+      <ModalItem isOpen={modalIsOpen} handleClick={() => setModalIsOpen(false)}>
+        <Form />
+      </ModalItem>
     </>
   );
 }
