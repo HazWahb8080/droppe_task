@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import {
   FavoritesContext,
   MessageContext,
+  ModalContext,
   ProductsContext,
 } from "./context/useContext";
 import ShopApp from "./ShopApp";
@@ -14,13 +15,16 @@ function App() {
   });
   const [favorites, setFavorites] = useState([]);
   const [message, setMessage] = useState({ isShowing: false, content: "" });
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
   return (
     <ProductsContext.Provider value={{ products, setProducts }}>
       <FavoritesContext.Provider value={{ favorites, setFavorites }}>
-        <MessageContext.Provider value={{ message, setMessage }}>
-          <ShopApp />
-        </MessageContext.Provider>
+        <ModalContext.Provider value={{ modalIsOpen, setModalIsOpen }}>
+          <MessageContext.Provider value={{ message, setMessage }}>
+            <ShopApp />
+          </MessageContext.Provider>
+        </ModalContext.Provider>
       </FavoritesContext.Provider>
     </ProductsContext.Provider>
   );
