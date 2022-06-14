@@ -11,8 +11,8 @@ import {
 import ModalItem from "./components/modal/ModalItem";
 import { images } from "./utils/images/images";
 import "./index.module.css";
-import { Button } from "./components/button/Button";
-import { Form } from "./components/form/Form";
+import Button from "./components/button/Button";
+import Form from "./components/form/Form";
 export default function ShopApp() {
   // states
   const { products, setProducts } = useContext<Products | any>(ProductsContext);

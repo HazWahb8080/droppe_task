@@ -1,5 +1,4 @@
 import React, { FormEvent, useContext, useEffect, useState } from "react";
-import { Button } from "../button/Button";
 import styles from "./form.module.css";
 import {
   MessageContext,
@@ -11,8 +10,9 @@ import Input from "../input/Input";
 import useInput from "../../hooks/useInput";
 import TextArea from "../textarea/TextArea";
 import FormItem from "./formItem/FormItem";
+import Button from "../button/Button";
 
-export const Form = () => {
+export default function Form() {
   const { setModalIsOpen } = useContext<any>(ModalContext);
   const { setMessage } = useContext<any>(MessageContext);
   const [newProduct, setNewProduct] = useState<Product>({
@@ -116,4 +116,4 @@ export const Form = () => {
       </FormItem.Footer>
     </FormItem>
   );
-};
+}
