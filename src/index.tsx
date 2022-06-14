@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Modal from "react-modal";
-import "./index.css";
+import "./index.module.css";
 import * as serviceWorker from "./serviceWorker";
 import App from "./App";
 Modal.setAppElement("#root");

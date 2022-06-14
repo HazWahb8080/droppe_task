@@ -7,6 +7,8 @@
   align-items: center;
   justify-content: center;
   height: 80px;
+  composes: container from "./index.module.css";
+  /* tried many css-linters */
 }
 
 .logo {
@@ -15,6 +17,8 @@
 
 .main {
   padding: 32px 0;
+  composes: container from "./index.module.css";
+  /* tried many css-linters */
 }
 .imagesWrapper {
   margin: 50px inherit;

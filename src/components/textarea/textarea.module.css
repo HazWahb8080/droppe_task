@@ -2,5 +2,5 @@
   resize: none;
   height: 120px;
   composes: input from "../input/input.module.css";
-  /* tried many css-modules linters */
+  /* tried many linters */
 }

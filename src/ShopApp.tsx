@@ -10,7 +10,7 @@ import {
 } from "./context/useContext";
 import ModalItem from "./components/modal/ModalItem";
 import { images } from "./utils/images/images";
-import "./index.css";
+import "./index.module.css";
 import { Button } from "./components/button/Button";
 import { Form } from "./components/form/Form";
 export default function ShopApp() {
@@ -42,11 +42,11 @@ export default function ShopApp() {
   return (
     <>
       <header className={styles.header}>
-        <div className={`container ${styles.headerImageWrapper}`}>
+        <div className={`${styles.headerImageWrapper}`}>
           <img src={logo.link} alt={logo.alt} className={styles.logo} />
         </div>
       </header>
-      <div className={`container ${styles.main} ${styles.imagesWrapper}`}>
+      <div className={`${styles.main} ${styles.imagesWrapper}`}>
         <img
           src={shopapp.header.left.link}
           alt={shopapp.header.left.alt}
@@ -59,7 +59,7 @@ export default function ShopApp() {
         />
       </div>
 
-      <div className={`container ${styles.main}`} style={{ paddingTop: 0 }}>
+      <div className={`${styles.main}`} style={{ paddingTop: 0 }}>
         <div className={styles.buttonWrapper}>
           <span role="button">
             <Button onClick={() => setModalIsOpen(true)}>
