@@ -7,8 +7,10 @@ interface Props {
   type?: "button" | "submit" | "reset";
 }
 
-export const Button = ({ children, onClick, type }: Props) => (
-  <button className={styles.button} type={type} onClick={onClick}>
-    {children}
-  </button>
-);
+export default function Button({ children, onClick, type }: Props) {
+  return (
+    <button className={styles.button} type={type} onClick={onClick}>
+      {children}
+    </button>
+  );
+}
