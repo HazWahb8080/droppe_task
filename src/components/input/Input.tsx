@@ -2,7 +2,15 @@ import React from "react";
 import { InputProps } from "../../../typings";
 import styles from "./input.module.css";
 
-function Input({ id, name, value, onChange, placeholder, type }: InputProps) {
+function Input({
+  id,
+  name,
+  value,
+  onChange,
+  placeholder,
+  type,
+  min,
+}: InputProps) {
   return (
     <input
       id={id}
@@ -12,6 +20,7 @@ function Input({ id, name, value, onChange, placeholder, type }: InputProps) {
       placeholder={placeholder}
       className={styles.input}
       type={type}
+      min={min}
     />
   );
 }

@@ -100,6 +100,8 @@ export const Form = () => {
           id="form-input-required"
           name="price"
           placeholder="120"
+          type="number"
+          min="0"
           {...bindPrice}
         />
         <TextArea

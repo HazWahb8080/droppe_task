@@ -48,6 +48,7 @@ export interface TextAreaProps {
   onChange?: (e: ChangeEvent<HTMLTextAreaElement>) => void;
 }
 export interface InputProps extends TextAreaProps {
+  min?: number;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
   type:
     | "button"
