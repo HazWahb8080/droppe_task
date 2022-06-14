@@ -74,3 +74,8 @@ export interface InputProps extends TextAreaProps {
     | "url"
     | "week";
 }
+
+export interface ProductContext {
+  products?: Products;
+  setProducts: (products: Products) => void;
+}

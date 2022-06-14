@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import ProductList from "./components/productList/ProductList";
 import styles from "./shopApp.module.css";
-import { Favorites } from "../typings";
+import { Favorites, Message, Products } from "../typings";
 import {
   FavoritesContext,
   MessageContext,
@@ -15,12 +15,14 @@ import { Button } from "./components/button/Button";
 import { Form } from "./components/form/Form";
 export default function ShopApp() {
   // states
-  const { products, setProducts } = useContext<any>(ProductsContext);
+  const { products, setProducts } = useContext<Products | any>(ProductsContext);
   const { favorites } = useContext<Favorites>(FavoritesContext);
-  const { modalIsOpen, setModalIsOpen } = useContext<any>(ModalContext);
-  const { message } = useContext<any>(MessageContext);
+  const { modalIsOpen, setModalIsOpen } = useContext<boolean | any>(
+    ModalContext
+  );
   const [loadingForProducts, setLoadingForProducts] = useState(false);
   const { shopapp, logo } = images;
+  const { message } = useContext<Message | any>(MessageContext);
 
   // fetching Products
   useEffect(() => {

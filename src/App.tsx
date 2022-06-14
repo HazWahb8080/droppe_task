@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Products } from "../typings";
 import {
   FavoritesContext,
   MessageContext,
@@ -11,11 +12,7 @@ function App() {
   const [favorites, setFavorites] = useState([]);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [message, setMessage] = useState({ isShowing: false, content: "" });
-  const [products, setProducts] = useState({
-    price: 0,
-    description: "",
-    title: "",
-  });
+  const [products, setProducts] = useState<Products | []>([]);
 
   return (
     <ProductsContext.Provider value={{ products, setProducts }}>
