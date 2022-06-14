@@ -13,6 +13,8 @@ export default function ProductItem({ product }: ProductItemProps) {
   const { favorites, setFavorites } = useContext<Favorites>(FavoritesContext);
   const { title, description, price, rating } = product; // destructuring
   // Problem: Now product title can be too long, I just put overflowX as fix now
+  // fix: remove all overflowX properies and replace whitespace:nowrap property with normal [default] so can be removed as well.
+  // fix_2: other cases we can use break-word property to break the text into multiple lines.
 
   function handleFavProduct() {
     setIsFavorite((currState) => !currState);
@@ -24,7 +26,7 @@ export default function ProductItem({ product }: ProductItemProps) {
   }
 
   return (
-    <div className={styles.product}>
+    <div  className={styles.product}>
       <span className={styles.productTitle}>{title}</span>
 
       <p>

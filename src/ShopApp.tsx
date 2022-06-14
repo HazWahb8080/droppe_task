@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import ProductList from "./components/ProductList";
+import ProductList from "./components/productList/ProductList";
 import styles from "./shopApp.module.css";
 import { Favorites } from "../typings";
 import {
@@ -38,7 +38,6 @@ export default function ShopApp() {
     fetchData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
   return (
     <>
       <header className={styles.header}>
@@ -81,15 +80,11 @@ export default function ShopApp() {
           </div>
         )}
 
-        {
-          loadingForProducts ? (
-            <div>Loading...</div> // it is better to use loading custom component or skeletons.
-          ) : products?.length >= 1 ? (
-            <ProductList products={products} />
-          ) : (
-            <div>No products avialable</div>
-          ) // always tell the user the current state
-        }
+        {loadingForProducts ? (
+          <div>Loading...</div> // it is better to use loading custom component or skeletons.
+        ) : (
+          <ProductList products={products} />
+        )}
       </div>
       <ModalItem isOpen={modalIsOpen} handleClick={() => setModalIsOpen(false)}>
         <Form />
