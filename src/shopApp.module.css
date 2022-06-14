@@ -30,18 +30,15 @@
   display: block;
 }
 
-.buttonWrapper {
+.buttonWrapper,
+.statsContainer {
   margin-bottom: 24px;
-}
+} /* combining  */
 
 .messageContainer {
   margin-top: 10px;
   display: flex;
   justify-content: center;
-}
-
-.statsContainer {
-  margin-bottom: 24px;
 }
 
 .reactModalContent {
@@ -54,9 +51,6 @@
   height: auto;
   margin: 0 auto;
   background: #ffffff;
-  border: none;
-  border-radius: 0;
-  outline: none;
   padding: 24px;
   overflow: auto;
 }
