@@ -18,6 +18,6 @@ function ProductList({ products }: ProductListProps) {
       )}
     </div>
   );
-}
+      }
 
 export default ProductList;
