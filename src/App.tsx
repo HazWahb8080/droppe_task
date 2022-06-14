@@ -8,14 +8,14 @@ import {
 import ShopApp from "./ShopApp";
 
 function App() {
+  const [favorites, setFavorites] = useState([]);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [message, setMessage] = useState({ isShowing: false, content: "" });
   const [products, setProducts] = useState({
     price: 0,
     description: "",
     title: "",
   });
-  const [favorites, setFavorites] = useState([]);
-  const [message, setMessage] = useState({ isShowing: false, content: "" });
-  const [modalIsOpen, setModalIsOpen] = useState(false);
 
   return (
     <ProductsContext.Provider value={{ products, setProducts }}>

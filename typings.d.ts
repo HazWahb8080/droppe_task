@@ -1,3 +1,5 @@
+import { Component, FormEvent, ReactNode, ChangeEvent } from "react";
+
 export interface Product {
   id?: number;
   title: string;
@@ -10,10 +12,34 @@ export interface Product {
 }
 export type Products = Product[];
 
+export interface Message {
+  isShowing: boolean;
+  content: string;
+}
+
 export interface Favorites {
   favorites: Products;
   setFavorites: (favorites: Products) => void;
 }
+
+export interface FormProps {
+  children: ReactNode | Component[] | any;
+  style: string;
+  onSubmit: (e: FormEvent) => void;
+}
+export interface HeaderProps {
+  children: ReactNode | string;
+  style: string;
+}
+export interface BodyProps {
+  children: ReactNode;
+  style?: string;
+}
+export interface FooterProps {
+  children: ReactNode | string;
+  style?: string;
+}
+
 export interface TextAreaProps {
   id?: string;
   name?: string;
@@ -46,21 +72,4 @@ export interface InputProps extends TextAreaProps {
     | "time"
     | "url"
     | "week";
-}
-export interface FormProps {
-  children: ReactNode | Component[] | any;
-  style: string;
-  onSubmit: (e: FormEvent) => void;
-}
-export interface HeaderProps {
-  children: ReactNode | string;
-  style: string;
-}
-export interface BodyProps {
-  children: ReactNode;
-  style?: string;
-}
-export interface FooterProps {
-  children: ReactNode | string;
-  style?: string;
 }

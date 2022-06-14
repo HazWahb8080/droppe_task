@@ -15,12 +15,12 @@ import { Button } from "./components/button/Button";
 import { Form } from "./components/form/Form";
 export default function ShopApp() {
   // states
+  const { products, setProducts } = useContext<any>(ProductsContext);
   const { favorites } = useContext<Favorites>(FavoritesContext);
   const { modalIsOpen, setModalIsOpen } = useContext<any>(ModalContext);
-  const { products, setProducts } = useContext<any>(ProductsContext);
-  const { shopapp, logo } = images;
-  const [loadingForProducts, setLoadingForProducts] = useState(false);
   const { message } = useContext<any>(MessageContext);
+  const [loadingForProducts, setLoadingForProducts] = useState(false);
+  const { shopapp, logo } = images;
 
   // fetching Products
   useEffect(() => {
@@ -46,7 +46,7 @@ export default function ShopApp() {
           <img src={logo.link} alt={logo.alt} className={styles.logo} />
         </div>
       </header>
-      <div className={`container ${styles.main} ${styles.ImagesWrapper}`}>
+      <div className={`container ${styles.main} ${styles.imagesWrapper}`}>
         <img
           src={shopapp.header.left.link}
           alt={shopapp.header.left.alt}

@@ -3,13 +3,12 @@ import ReactDOM from "react-dom";
 import Modal from "react-modal";
 import "./index.css";
 import * as serviceWorker from "./serviceWorker";
-import ShopApp from "./ShopApp";
-
+import App from "./App";
 Modal.setAppElement("#root");
 
 ReactDOM.render(
   <React.StrictMode>
-    <ShopApp />
+    <App />
   </React.StrictMode>,
   document.getElementById("root")
 );
